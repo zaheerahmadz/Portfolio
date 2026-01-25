@@ -1,0 +1,31 @@
+@keyframes slideRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+.arrow-slide {
+  animation: slideRight 1.5s ease-in-out infinite;
+  display: inline-block; /* important to make transform work properly */
+}
+@keyframes blinkScale {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.15);
+  }
+}
+
+.blink-scale {
+  animation: blinkScale 1.5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
