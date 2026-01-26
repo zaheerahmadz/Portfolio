@@ -16,7 +16,7 @@ function App() {
       <WorkProcess />
       <ProjectsSection />
       <Footer />
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }
