@@ -1,6 +1,5 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -15,132 +14,104 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const socialLinks = [
-  { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { icon: FaFacebookF, href: "#", label: "Facebook" },
-  { icon: FaTwitter, href: "#", label: "Twitter" },
-  { icon: FaYoutube, href: "#", label: "YouTube" },
+  { icon: FaLinkedinIn, href: "#" },
+  { icon: FaFacebookF, href: "#" },
+  { icon: FaTwitter, href: "#" },
+  { icon: FaYoutube, href: "#" },
 ];
 
 const navItems = [
-  "Home",
-  "Services",
-  "Projects",
-  "About",
-  "Clients",
-  "Contact",
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/" },
+  { name: "Projects", path: "/" },
+  { name: "About", path: "/" },
+  { name: "Clients", path: "/" },
+  { name: "Contact", path: "/contact" },
 ];
 
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0b0b0f]/90 backdrop-blur-xl shadow-xl border-b border-white/5"
+          ? "bg-[#0b0b0f]/90 backdrop-blur-xl border-b border-white/5 shadow-xl"
           : "bg-transparent"
       }`}
     >
-      {/* Top Bar - only visible on md+ */}
-      <div className="hidden md:block border-b border-white/5 bg-[#0f0f17]/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-10 flex items-center justify-between text-xs text-gray-400">
-          {/* Social Links */}
-          <div className="flex items-center gap-5">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="hover:text-[#7E2EEF] transition-colors duration-200"
-              >
-                <Icon className="text-lg" />
+      {/* Top Bar */}
+      <div className="hidden md:block bg-[#0f0f17]/80 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 h-10 flex justify-between items-center text-xs text-gray-400">
+          <div className="flex gap-5">
+            {socialLinks.map(({ icon: Icon, href }, i) => (
+              <a key={i} href={href} className="hover:text-[#7E2EEF]">
+                <Icon />
               </a>
             ))}
           </div>
 
-          {/* Contact Info */}
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2 hover:text-[#7E2EEF] transition-colors">
-              <FaPhoneAlt className="text-sm" />
-              <span>+92 310 5499944</span>
-            </div>
-            <div className="flex items-center gap-2 hover:text-[#7E2EEF] transition-colors">
-              <FaEnvelope className="text-sm" />
-              <span>zaheerahmedjudg@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-2 hover:text-[#7E2EEF] transition-colors">
-              <FaMapMarkerAlt className="text-sm" />
-              <span>Islamabad, Pakistan</span>
-            </div>
+          <div className="flex gap-8">
+            <span className="flex items-center gap-2">
+              <FaPhoneAlt /> +92 310 5499944
+            </span>
+            <span className="flex items-center gap-2">
+              <FaEnvelope /> zaheerahmedjudg@gmail.com
+            </span>
+            <span className="flex items-center gap-2">
+              <FaMapMarkerAlt /> Islamabad, Pakistan
+            </span>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
-          <span className="text-3xl md:text-4xl font-black bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] bg-clip-text text-transparent tracking-tight">
-            Zaheer
-          </span>
-        </a>
+        <NavLink
+          to="/"
+          className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]"
+        >
+          Zaheer
+        </NavLink>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-10">
+        {/* Desktop Menu */}
+        <nav className="hidden lg:flex gap-10">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors group"
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `relative text-sm font-medium transition-colors ${
+                  isActive ? "text-white" : "text-gray-300 hover:text-white"
+                }`
+              }
             >
-              {item}
-              <span
-                className="
-                  absolute -bottom-1 left-0 h-0.5 w-0 
-                  bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] 
-                  transition-all duration-300 
-                  group-hover:w-full
-                "
-              />
-            </a>
+              {item.name}
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] transition-all duration-300 group-hover:w-full" />
+            </NavLink>
           ))}
         </nav>
 
-        {/* CTA + Mobile Toggle */}
-        <div className="flex items-center gap-5 md:gap-6">
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            className="
-              hidden sm:flex items-center justify-center 
-              px-7 py-3 rounded-full font-semibold text-sm
-              bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
-              text-white shadow-lg shadow-indigo-500/20
-              hover:shadow-xl hover:shadow-indigo-500/30
-              transition-all duration-300 relative overflow-hidden
-            "
+        {/* CTA + Mobile */}
+        <div className="flex items-center gap-5">
+          <NavLink
+            to="/contact"
+            className="hidden sm:flex px-7 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] text-white shadow-lg"
           >
-            <span className="relative z-10">Let's Talk</span>
-            <div className="absolute inset-0 bg-white/15 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-          </motion.a>
+            Let’s Talk
+          </NavLink>
 
-          {/* Mobile Menu Button */}
           <button
+            className="lg:hidden text-2xl text-white"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-2xl text-white hover:text-[#7E2EEF] transition-colors"
-            aria-label="Toggle menu"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -151,45 +122,36 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#0f0f17]/95 backdrop-blur-xl border-t border-white/5 overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="lg:hidden bg-[#0f0f17]/95 backdrop-blur-xl"
           >
-            <nav className="flex flex-col py-4 px-6">
+            <nav className="flex flex-col px-6 py-4">
               {navItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                <NavLink
+                  key={item.name}
+                  to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className="
-                    py-4 px-5 text-gray-300 hover:text-white 
-                    hover:bg-white/5 rounded-lg transition-colors
-                    text-base font-medium
-                  "
+                  className="py-4 text-gray-300 hover:text-white"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </NavLink>
               ))}
 
-              <motion.a
-                href="#contact"
+              <NavLink
+                to="/contact"
                 onClick={() => setIsOpen(false)}
-                whileTap={{ scale: 0.97 }}
-                className="
-                  mt-6 mx-5 py-4 px-6 rounded-full text-center
-                  bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
-                  text-white font-semibold shadow-lg
-                  hover:shadow-indigo-500/30 transition-all
-                "
+                className="mt-6 py-4 text-center rounded-full bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] text-white font-semibold"
               >
-                Let's Discuss Your Project
-              </motion.a>
+                Let’s Discuss Your Project
+              </NavLink>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
-}
+};
+
+export default Navbar;

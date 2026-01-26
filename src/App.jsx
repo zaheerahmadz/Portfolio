@@ -1,23 +1,35 @@
-import { Contact } from "lucide-react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import ProjectsSection from "./components/ProjectsSection";
 import Specialities from "./components/Specialities";
 import WorkProcess from "./components/WorkProcess";
+import ProjectsSection from "./components/ProjectsSection";
+import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
+
+const Home = () => (
+  <>
+    <Hero />
+    <Specialities />
+    <WorkProcess />
+    <ProjectsSection />
+  </>
+);
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
-      {/* We will add other sections here later */}
-      <Hero />
-      <Specialities />
-      <WorkProcess />
-      <ProjectsSection />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
       <Footer />
-      {/* <Contact /> */}
-    </>
+    </BrowserRouter>
   );
 }
 
