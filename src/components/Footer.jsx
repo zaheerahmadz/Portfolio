@@ -3,7 +3,7 @@ import React from "react";
 import {
   FaLinkedinIn,
   FaFacebookF,
-  FaTwitter,
+  FaTiktok,
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
@@ -33,22 +33,32 @@ const Footer = () => {
 
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/zaheerahmad-merndeveloper/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
                 className="text-gray-400 hover:text-indigo-400 transition-colors"
               >
                 <FaLinkedinIn size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/share/1JbRiFaoqK/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook profile"
                 className="text-gray-400 hover:text-indigo-400 transition-colors"
               >
                 <FaFacebookF size={20} />
               </a>
+
               <a
-                href="#"
+                href="https://www.tiktok.com/@zeesoft99944?_r=1&_t=ZS-93QlH9GvcEj"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok profile"
                 className="text-gray-400 hover:text-indigo-400 transition-colors"
               >
-                <FaTwitter size={20} />
+                <FaTiktok size={20} />
               </a>
             </div>
           </div>
@@ -60,32 +70,40 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a href="/" className="hover:text-indigo-400 transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="/service"
+                  className="hover:text-indigo-400 transition-colors"
+                >
                   Services
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="/about"
+                  className="hover:text-indigo-400 transition-colors"
+                >
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="projects"
+                  className="hover:text-indigo-400 transition-colors"
+                >
                   Projects
                 </a>
               </li>
+
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
-                  Clients
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">
+                <a
+                  href="/contact"
+                  className="hover:text-indigo-400 transition-colors"
+                >
                   Contact
                 </a>
               </li>

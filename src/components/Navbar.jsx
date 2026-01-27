@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
 import {
   FaLinkedinIn,
   FaFacebookF,
-  FaTwitter,
-  FaYoutube,
   FaPhoneAlt,
   FaEnvelope,
+  FaTiktok,
   FaMapMarkerAlt,
   FaBars,
   FaTimes,
@@ -14,18 +14,24 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const socialLinks = [
-  { icon: FaLinkedinIn, href: "#" },
-  { icon: FaFacebookF, href: "#" },
-  { icon: FaTwitter, href: "#" },
-  { icon: FaYoutube, href: "#" },
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/in/zaheerahmad-merndeveloper/",
+  },
+  { icon: FaFacebookF, href: "https://www.facebook.com/share/1JbRiFaoqK/" },
+
+  {
+    icon: FaTiktok,
+    href: "https://www.tiktok.com/@zeesoft99944?_r=1&_t=ZS-93QlH9GvcEj",
+  },
 ];
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Services", path: "/" },
-  { name: "Projects", path: "/" },
-  { name: "About", path: "/" },
-  { name: "Clients", path: "/" },
+  { name: "Services", path: "/service" },
+  { name: "Projects", path: "/projects" },
+  { name: "About", path: "/about" },
+
   { name: "Contact", path: "/contact" },
 ];
 
@@ -52,7 +58,12 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 h-10 flex justify-between items-center text-xs text-gray-400">
           <div className="flex gap-5">
             {socialLinks.map(({ icon: Icon, href }, i) => (
-              <a key={i} href={href} className="hover:text-[#7E2EEF]">
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                className="hover:text-[#7E2EEF]"
+              >
                 <Icon />
               </a>
             ))}

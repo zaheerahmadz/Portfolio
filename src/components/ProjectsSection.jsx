@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-
+import { NavLink } from "react-router-dom";
 const projects = [
   {
     id: 1,
@@ -151,14 +151,17 @@ export default function ProjectsSection() {
 
         {/* CTA */}
         <div className="mt-20 text-center">
-          <button
-            className="px-12 py-5 rounded-full text-lg font-semibold text-white
-                             bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
-                             shadow-xl shadow-[#7E2EEF]/30
-                             hover:scale-105 transition-transform"
-          >
-            View All Projects →
-          </button>
+          <NavLink to="/projects" passHref>
+            <button
+              className="px-12 py-5 rounded-full text-lg font-semibold text-white
+                   bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
+                   shadow-xl shadow-[#7E2EEF]/30
+                   hover:scale-105 transition-transform"
+              type="button"
+            >
+              View All Projects →
+            </button>
+          </NavLink>
         </div>
       </div>
     </section>

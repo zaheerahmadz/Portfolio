@@ -7,6 +7,9 @@ import WorkProcess from "./components/WorkProcess";
 import ProjectsSection from "./components/ProjectsSection";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import Service from "./pages/Service";
+import Projects from "./pages/Projects";
+import About from "./pages/About";
 
 const Home = () => (
   <>
@@ -25,7 +28,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
 
       <Footer />

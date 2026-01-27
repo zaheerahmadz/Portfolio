@@ -49,7 +49,7 @@ const Contact = () => {
           animate="visible"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Let's Bring Your <span className="text-indigo-500">Vision</span> to
+            Let's Bring Your <span className="text-[#7E2EEF]">Vision</span> to
             Life
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">

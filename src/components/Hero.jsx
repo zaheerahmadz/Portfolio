@@ -171,7 +171,7 @@ export default function Hero() {
             className="mt-12 flex flex-wrap gap-6"
           >
             <motion.a
-              href="#contact"
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group relative px-9 py-4 rounded-full font-semibold text-white overflow-hidden bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] shadow-xl"
@@ -181,7 +181,7 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="#projects"
+              href="/projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-3 px-6 py-4 rounded-full font-medium text-gray-300 hover:text-white transition-all group"
