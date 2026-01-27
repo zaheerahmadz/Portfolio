@@ -4,7 +4,7 @@ import {
   FaMapMarkerAlt,
   FaLinkedinIn,
   FaFacebookF,
-  FaTwitter,
+  FaTiktok,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -109,15 +109,18 @@ const Contact = () => {
                   {[
                     {
                       icon: FaLinkedinIn,
-                      href: "#",
+                      target: "_blank",
+                      href: "https://www.linkedin.com/in/zaheerahmad-merndeveloper/",
                     },
                     {
                       icon: FaFacebookF,
-                      href: "#",
+                      target: "_blank",
+                      href: "https://www.facebook.com/share/1JbRiFaoqK/",
                     },
                     {
-                      icon: FaTwitter,
-                      href: "#",
+                      icon: FaTiktok,
+                      target: "_blank",
+                      href: "https://www.tiktok.com/@zeesoft99944?_r=1&_t=ZS-93QlH9GvcEj",
                     },
                   ].map(({ icon: Icon, href }, i) => (
                     <motion.a
