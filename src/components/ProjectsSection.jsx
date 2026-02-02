@@ -1,24 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+
 const projects = [
   {
     id: 1,
-    title: "Winter Campaign",
-    category: "Branding • Marketing",
-    image:
-      "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&auto=format&fit=crop&q=80",
+    title: "Arsha Project Business Solutions",
+    category: "Digital Agency",
+    image: "./public/Arsha.jpg",
     description:
-      "Creative winter marketing campaign with bold seasonal visuals and storytelling",
+      "Arsha Omega — Responsive Bootstrap template for agencies and freelancers to showcase services and portfolios.",
+    url: "https://arsha-project-omega.vercel.app/",
   },
   {
     id: 2,
-    title: "Think. Make. Solve.",
-    category: "UI/UX • Product Design",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
+    title: "Industrial & Factory Website",
+    category: "Nictorys Factory & Industrial Template",
+    image: "./public/Eng.jpg",
     description:
-      "Exploration of design systems and thoughtful product experience architecture",
+      "Nictorys – Industrial & Factory Template offers a clean, customizable web solution for industrial businesses, featuring multiple page layouts and responsive design for engineering, manufacturing, and industrial service sites.",
+    url: "https://nictorys-factory-industrial.vercel.app/",
   },
   {
     id: 3,
@@ -82,71 +83,142 @@ export default function ProjectsSection() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group relative rounded-2xl overflow-hidden bg-[#121225] border border-white/5 
-                         hover:border-[#7E2EEF]/40 transition-all duration-500 
-                         hover:shadow-[0_20px_60px_rgba(126,46,239,0.25)] cursor-pointer"
-            >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-
-                {/* Overlay */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-t 
-                                from-[#0B0B14]/90 via-[#0B0B14]/50 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                />
-
-                {/* Button */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center 
-                                opacity-0 group-hover:opacity-100 transition-all duration-500"
+          {projects.map((project) => {
+            // If project has url, wrap entire card in <a> tag to open link in new tab
+            if (project.url) {
+              return (
+                <a
+                  key={project.id}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative rounded-2xl overflow-hidden bg-[#121225] border border-white/5 
+                             hover:border-[#7E2EEF]/40 transition-all duration-500 
+                             hover:shadow-[0_20px_60px_rgba(126,46,239,0.25)] cursor-pointer block"
                 >
-                  <button
-                    className="px-8 py-4 rounded-full font-semibold text-white
-                                     bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
-                                     shadow-lg shadow-[#7E2EEF]/40
-                                     transform scale-95 group-hover:scale-100 transition-all duration-300"
-                  >
-                    View Project
-                  </button>
-                </div>
-              </div>
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t 
+                                    from-[#0B0B14]/90 via-[#0B0B14]/50 to-transparent 
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+                    {/* Button */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center 
+                                    opacity-0 group-hover:opacity-100 transition-all duration-500"
+                    >
+                      <button
+                        className="px-8 py-4 rounded-full font-semibold text-white
+                                         bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
+                                         shadow-lg shadow-[#7E2EEF]/40
+                                         transform scale-95 group-hover:scale-100 transition-all duration-300"
+                      >
+                        View Project
+                      </button>
+                    </div>
+                  </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold group-hover:text-[#7E2EEF] transition-colors">
-                    {project.title}
-                  </h3>
-                  <span
-                    className="text-xs px-3 py-1.5 rounded-full 
-                                   bg-white/5 text-gray-300"
-                  >
-                    {project.category}
-                  </span>
-                </div>
-                <p className="text-gray-400 text-sm line-clamp-2">
-                  {project.description}
-                </p>
-              </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-semibold group-hover:text-[#7E2EEF] transition-colors">
+                        {project.title}
+                      </h3>
+                      <span
+                        className="text-xs px-3 py-1.5 rounded-full 
+                                       bg-white/5 text-gray-300"
+                      >
+                        {project.category}
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
 
-              {/* Accent bar */}
+                  {/* Accent bar */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1.5 
+                                  bg-gradient-to-b from-[#7E2EEF] to-[#3648EF]
+                                  transform -translate-x-full group-hover:translate-x-0 
+                                  transition-transform duration-500"
+                  />
+                </a>
+              );
+            }
+
+            // For projects without url, render normal card div
+            return (
               <div
-                className="absolute left-0 top-0 bottom-0 w-1.5 
-                              bg-gradient-to-b from-[#7E2EEF] to-[#3648EF]
-                              transform -translate-x-full group-hover:translate-x-0 
-                              transition-transform duration-500"
-              />
-            </div>
-          ))}
+                key={project.id}
+                className="group relative rounded-2xl overflow-hidden bg-[#121225] border border-white/5 
+                           hover:border-[#7E2EEF]/40 transition-all duration-500 
+                           hover:shadow-[0_20px_60px_rgba(126,46,239,0.25)] cursor-pointer"
+              >
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t 
+                                  from-[#0B0B14]/90 via-[#0B0B14]/50 to-transparent 
+                                  opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  {/* Button */}
+                  <div
+                    className="absolute inset-0 flex items-center justify-center 
+                                  opacity-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <button
+                      className="px-8 py-4 rounded-full font-semibold text-white
+                                       bg-gradient-to-r from-[#7E2EEF] to-[#3648EF]
+                                       shadow-lg shadow-[#7E2EEF]/40
+                                       transform scale-95 group-hover:scale-100 transition-all duration-300"
+                    >
+                      View Project
+                    </button>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold group-hover:text-[#7E2EEF] transition-colors">
+                      {project.title}
+                    </h3>
+                    <span
+                      className="text-xs px-3 py-1.5 rounded-full 
+                                     bg-white/5 text-gray-300"
+                    >
+                      {project.category}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm line-clamp-2">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Accent bar */}
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1.5 
+                                bg-gradient-to-b from-[#7E2EEF] to-[#3648EF]
+                                transform -translate-x-full group-hover:translate-x-0 
+                                transition-transform duration-500"
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* CTA */}
