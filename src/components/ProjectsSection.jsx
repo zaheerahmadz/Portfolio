@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     title: "Arsha Project Business Solutions",
     category: "Digital Agency",
-    image: "./public/Arsha.jpg",
+    image: "/Arsha.jpg",
     description:
       "Arsha Omega — Responsive Bootstrap template for agencies and freelancers to showcase services and portfolios.",
     url: "https://arsha-project-omega.vercel.app/",
@@ -16,7 +16,7 @@ const projects = [
     id: 2,
     title: "Industrial & Factory Website",
     category: "Nictorys Factory & Industrial Template",
-    image: "./public/Eng.jpg",
+    image: "/Eng.jpg",
     description:
       "Nictorys – Industrial & Factory Template offers a clean, customizable web solution for industrial businesses, featuring multiple page layouts and responsive design for engineering, manufacturing, and industrial service sites.",
     url: "https://nictorys-factory-industrial.vercel.app/",
