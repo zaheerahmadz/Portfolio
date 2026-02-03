@@ -1,4 +1,4 @@
-"use client"; // Optional, only if you use React Server Components
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -13,44 +13,44 @@ import {
 
 const specialities = [
   {
-    title: "Responsive Web Design",
+    title: "Full-Stack MERN Development",
     description:
-      "Fluid, mobile-first layouts that deliver pixel-perfect experiences across every screen size and device.",
-    icon: DevicePhoneMobileIcon,
+      "End-to-end web application development using MongoDB, Express, React, and Node.js with scalable architecture and clean code practices.",
+    icon: CodeBracketIcon,
     color: "from-cyan-500 to-blue-600",
   },
   {
-    title: "React.js Development",
+    title: "REST APIs & Backend Architecture",
     description:
-      "Modern, component-driven applications with clean architecture, hooks, and optimal performance.",
-    icon: CodeBracketIcon,
+      "Secure, well-structured RESTful APIs, authentication systems, middleware design, and database integration for production-grade backends.",
+    icon: GlobeAltIcon,
     color: "from-indigo-500 to-purple-600",
   },
   {
-    title: "WordPress Customization",
+    title: "Responsive React Frontend",
     description:
-      "Deep theme & plugin development, custom Gutenberg blocks, and headless WordPress solutions.",
-    icon: PaintBrushIcon,
+      "Modern, component-driven React interfaces with reusable components, hooks, routing, and optimal rendering performance.",
+    icon: DevicePhoneMobileIcon,
     color: "from-teal-500 to-emerald-600",
   },
   {
-    title: "Modern JavaScript / TypeScript",
+    title: "MongoDB Database Design",
     description:
-      "ESNext + TypeScript codebases — clean, typed, maintainable, and future-proof.",
-    icon: CodeBracketIcon,
+      "Efficient schema design, indexing strategies, aggregation pipelines, and data modeling for high-performance applications.",
+    icon: PaintBrushIcon,
     color: "from-amber-500 to-orange-600",
   },
   {
-    title: "Performance & Optimization",
+    title: "Performance & Scalability",
     description:
-      "Core Web Vitals optimization, lazy loading, code splitting, image optimization, and Lighthouse 95+ scores.",
+      "Optimized applications with caching, lazy loading, code splitting, and best practices to ensure speed and scalability under load.",
     icon: RocketLaunchIcon,
     color: "from-pink-500 to-rose-600",
   },
   {
-    title: "SEO & Accessibility (a11y)",
+    title: "SEO, Accessibility & Best Practices",
     description:
-      "Semantic HTML, ARIA patterns, WCAG 2.2 compliance, schema markup, and search-engine friendly structure.",
+      "Semantic structure, accessibility compliance, clean architecture, and SEO-friendly implementations for discoverable web applications.",
     icon: GlobeAltIcon,
     color: "from-violet-500 to-fuchsia-600",
   },
@@ -77,54 +77,23 @@ export default function Specialities() {
   return (
     <>
       <Helmet>
-        <title>Zaheer Ahmad - Frontend Developer | Specialities</title>
+        <title>Zaheer Ahmad - MERN Stack Developer | Expertise</title>
         <meta
           name="description"
-          content="Zaheer Ahmad's core expertise in frontend development including React.js, responsive design, SEO, performance optimization, and accessibility."
+          content="Zaheer Ahmad's MERN stack expertise including full-stack development, REST APIs, MongoDB database design, React frontend, performance optimization, and scalable architecture."
         />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Zaheer Ahmad",
-            jobTitle: "Frontend Developer",
+            jobTitle: "MERN Stack Developer",
             skills: specialities.map((s) => s.title),
           })}
         </script>
       </Helmet>
 
       <section className="relative bg-gradient-to-b from-[#0b0b0f] to-[#0f0f17] py-28 md:py-40 overflow-hidden">
-        {/* Background floating orbs */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full opacity-20 blur-2xl"
-              style={{
-                width: `${80 + Math.random() * 140}px`,
-                height: `${80 + Math.random() * 140}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                background: `linear-gradient(to bottom right, ${
-                  ["#7E2EEF", "#3648EF", "#a855f7", "#06b6d4"][i % 4]
-                }, transparent)`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                scale: [1, 1.1, 1],
-                opacity: [0.15, 0.35, 0.15],
-              }}
-              transition={{
-                duration: 10 + Math.random() * 12,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-                delay: Math.random() * 5,
-              }}
-            />
-          ))}
-        </div>
-
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 z-10">
           {/* Heading */}
           <div className="text-center mb-20 md:mb-28">
@@ -147,7 +116,7 @@ export default function Specialities() {
             >
               My{" "}
               <span className="bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] bg-clip-text text-transparent">
-                Specialities
+                MERN Specialities
               </span>
             </motion.h2>
 
@@ -158,8 +127,9 @@ export default function Specialities() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed"
             >
-              Focused skill-set that helps turn ideas into fast, accessible, and
-              beautiful digital products.
+              A focused full-stack skill set that enables me to build complete,
+              scalable, and production-ready web applications from frontend to
+              backend.
             </motion.p>
           </div>
 
@@ -180,40 +150,21 @@ export default function Specialities() {
                   variants={cardVariants}
                   className="group relative"
                 >
-                  <div
-                    className={`
-                    relative bg-[#111118]/80 backdrop-blur-sm border border-gray-800/60 rounded-2xl p-8 md:p-10
-                    transition-all duration-400 ease-out
-                    hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10
-                    hover:border-transparent
-                    overflow-hidden
-                  `}
-                  >
-                    {/* Gradient border on hover */}
+                  <div className="relative bg-[#111118]/80 backdrop-blur-sm border border-gray-800/60 rounded-2xl p-8 md:p-10 transition-all duration-400 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-transparent overflow-hidden">
                     <div
-                      className={`
-                      absolute inset-0 rounded-2xl p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                      bg-gradient-to-br ${item.color}
-                    `}
+                      className={`absolute inset-0 rounded-2xl p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${item.color}`}
                     >
                       <div className="w-full h-full bg-[#0b0b0f] rounded-2xl" />
                     </div>
 
-                    {/* Icon */}
                     <div className="relative mb-7 flex justify-center">
                       <div
-                        className={`
-                        inline-flex items-center justify-center w-16 h-16 rounded-2xl
-                        bg-gradient-to-br ${item.color} bg-opacity-10
-                        text-white/90 group-hover:text-white
-                        transition-all duration-400 group-hover:scale-110 group-hover:rotate-3
-                      `}
+                        className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} text-white/90 group-hover:text-white transition-all duration-400 group-hover:scale-110 group-hover:rotate-3`}
                       >
                         <Icon className="w-8 h-8" strokeWidth={1.5} />
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="relative text-center">
                       <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-[#7E2EEF] group-hover:to-[#3648EF] transition-all duration-400">
                         {item.title}

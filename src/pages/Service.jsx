@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, LayoutDashboard, Globe, Palette } from "lucide-react";
+import {
+  Code2,
+  LayoutDashboard,
+  Globe,
+  Palette,
+  Database,
+  Server,
+  ImageIcon,
+  PenTool,
+  Layers,
+} from "lucide-react";
 
 const services = [
   {
@@ -15,6 +25,16 @@ const services = [
     desc: "Creating scalable single-page applications with React, reusable components, clean architecture, and smooth user experiences.",
   },
   {
+    icon: Server,
+    title: "Backend Development",
+    desc: "Designing RESTful APIs and server-side logic using Node.js and Express for scalable, secure, and efficient backend services.",
+  },
+  {
+    icon: Database,
+    title: "Database Management",
+    desc: "Implementing robust data storage solutions using MongoDB, ensuring data integrity, performance, and scalability.",
+  },
+  {
     icon: Globe,
     title: "WordPress Development",
     desc: "Custom WordPress websites, themes, and integrations focused on speed, security, SEO, and easy content management.",
@@ -23,6 +43,21 @@ const services = [
     icon: Palette,
     title: "UI Implementation",
     desc: "Pixel-perfect conversion of Figma designs into responsive layouts using Tailwind CSS and Bootstrap.",
+  },
+  {
+    icon: PenTool,
+    title: "Logo & Branding Design",
+    desc: "Creating unique and memorable logos and brand assets that effectively communicate your business identity.",
+  },
+  {
+    icon: ImageIcon,
+    title: "Social Media & Post Design",
+    desc: "Designing engaging social media posts, banners, and marketing visuals tailored to your brand’s voice.",
+  },
+  {
+    icon: Layers,
+    title: "Graphic Design Services",
+    desc: "Providing a variety of graphic design solutions including brochures, flyers, and digital illustrations.",
   },
 ];
 
@@ -58,15 +93,14 @@ function Service() {
             What I Can Do For You
           </h2>
           <p className="mt-6 text-gray-400 text-lg">
-            I provide expert frontend development services including React
-            applications, WordPress sites, and pixel-perfect UI implementation
-            to build modern, high-quality, and SEO-friendly digital products
-            that deliver excellent user experience and business value.
+            I provide expert frontend, backend, WordPress, and graphic design
+            services to deliver high-quality, SEO-friendly digital products and
+            creative branding solutions that drive business success.
           </p>
         </motion.div>
 
         {/* Service Cards */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

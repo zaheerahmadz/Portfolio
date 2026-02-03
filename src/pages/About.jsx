@@ -28,7 +28,11 @@ function About() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-[#0b0b0f] py-32 overflow-hidden">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative bg-[#0b0b0f] py-32 overflow-hidden"
+    >
       {/* Mouse sunlight glow */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -49,7 +53,7 @@ function About() {
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -60,79 +64,68 @@ function About() {
             About Me
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-white">
-            Zaheer Ahmad — Frontend Developer
-          </h2>
+          <h1
+            id="about-heading"
+            className="mt-4 text-4xl md:text-5xl font-extrabold text-white"
+          >
+            Zaheer Ahmad — MERN Stack & Frontend Developer
+          </h1>
 
           <p className="mt-6 text-gray-400 text-lg leading-relaxed">
-            I’m a professional frontend developer focused on building fast,
-            responsive, and SEO-friendly web interfaces using modern
-            technologies like React and Tailwind CSS. I help businesses create
-            digital experiences that convert and scale.
+            I’m a professional MERN stack and frontend developer focused on
+            building fast, scalable, responsive, and SEO-friendly web
+            applications using MongoDB, Express.js, React, Node.js, and Tailwind
+            CSS. I help businesses create modern digital products that deliver
+            excellent user experiences and business value.
           </p>
 
           {/* SEO-only content */}
           <p className="sr-only">
-            Zaheer Ahmad is a frontend developer specializing in React, Tailwind
-            CSS, JavaScript, and modern UI development. He builds responsive,
-            high-performance, SEO-optimized websites for clients worldwide.
+            Zaheer Ahmad is a MERN stack and frontend developer specializing in
+            MongoDB, Express, React, Node.js, JavaScript, and Tailwind CSS. He
+            builds scalable, responsive, high-performance, SEO-optimized
+            full-stack web applications for clients worldwide.
           </p>
-        </motion.div>
+        </motion.header>
 
         {/* Main Grid */}
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Story */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <article
+            tabIndex={0}
             className="text-gray-300 leading-relaxed space-y-6"
+            aria-label="Personal background and education"
           >
             <p>
               I’ve been working as a freelancer on Fiverr for over{" "}
-              <span className="text-white font-semibold">3 years</span>,
-              delivering clean, scalable, and reliable frontend solutions for
-              clients around the world.
+              <strong>3 years</strong>, delivering clean, scalable, and reliable
+              full-stack frontend and backend solutions for clients worldwide.
             </p>
 
             <p>
-              I completed my{" "}
-              <span className="text-white font-semibold">MERN Stack</span>{" "}
-              training from{" "}
-              <span className="text-white font-semibold">
-                PNY Training Institute
-              </span>
-              , strengthening my expertise in component-based architecture and
-              modern JavaScript practices.
+              I completed my <strong>MERN Stack training</strong> from{" "}
+              <strong>PNY Training Institute</strong>, deepening my expertise in
+              building component-based frontend architecture with React, as well
+              as backend APIs and databases with Node.js, Express, and MongoDB.
             </p>
 
             <p>
               I completed my intermediate education from{" "}
-              <span className="text-white font-semibold">
-                Punjab College Bhalwal
-              </span>{" "}
-              and achieved{" "}
-              <span className="text-white font-semibold">
-                board topper position in my 10th examination
-              </span>
-              , reflecting discipline, consistency, and attention to detail.
+              <strong>Punjab College Bhalwal</strong> and achieved{" "}
+              <strong>board topper position in my 10th examination</strong>,
+              reflecting my discipline, consistency, and attention to detail.
             </p>
 
             <p>
-              I communicate fluently in{" "}
-              <span className="text-white font-semibold">English</span> and{" "}
-              <span className="text-white font-semibold">Urdu</span>, ensuring
-              clear and professional collaboration.
+              I communicate fluently in <strong>English</strong> and{" "}
+              <strong>Urdu</strong>, ensuring clear and professional
+              collaboration.
             </p>
-          </motion.div>
+          </article>
 
           {/* Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <section
+            aria-label="Professional experience and achievements"
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
             <InfoCard
@@ -143,7 +136,7 @@ function About() {
             <InfoCard
               icon={GraduationCap}
               title="Education"
-              value="MERN Stack (PNY)"
+              value="MERN Stack (PNY Training Institute)"
             />
             <InfoCard
               icon={Award}
@@ -153,22 +146,26 @@ function About() {
             <InfoCard
               icon={Layers}
               title="Core Focus"
-              value="Frontend & UI Engineering"
+              value="Full-stack MERN & Frontend Development"
             />
-          </motion.div>
+          </section>
         </div>
 
         {/* How I Work */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="mt-28"
+          aria-labelledby="work-with-clients"
         >
-          <h3 className="text-3xl font-bold text-white mb-10">
+          <h2
+            id="work-with-clients"
+            className="text-3xl font-bold text-white mb-10"
+          >
             How I Work With Clients
-          </h3>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <ProcessCard
@@ -192,49 +189,62 @@ function About() {
               text="Reliable delivery with testing and revisions."
             />
           </div>
-        </motion.div>
+        </motion.section>
 
         {/* Trust Signals */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6"
+          aria-label="Professional trust signals"
         >
           <TrustCard title="Clean & Scalable Code" />
           <TrustCard title="Clear Communication" />
           <TrustCard title="On-Time Delivery" />
-        </motion.div>
+        </motion.section>
 
         {/* Contact */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-28 flex flex-col md:flex-row items-center justify-between gap-6 rounded-3xl border border-white/10 bg-[#0f0f14]/80 backdrop-blur-xl p-8"
+          aria-label="Contact information"
         >
           <div className="flex flex-col sm:flex-row gap-6 text-gray-300">
             <span className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-indigo-400" />
-              zaheerahmedjudg@gmail.com
+              <Mail className="w-5 h-5 text-indigo-400" aria-hidden="true" />
+              <a
+                href="mailto:zaheerahmedjudg@gmail.com"
+                className="underline hover:text-indigo-400"
+              >
+                zaheerahmedjudg@gmail.com
+              </a>
             </span>
             <span className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-indigo-400" />
-              +92 310 5499944
+              <Phone className="w-5 h-5 text-indigo-400" aria-hidden="true" />
+              <a
+                href="tel:+923105499944"
+                className="underline hover:text-indigo-400"
+              >
+                +92 310 5499944
+              </a>
             </span>
           </div>
 
           <a
             href="https://www.linkedin.com/in/zaheer-ahmad-352148329/"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] text-white font-semibold hover:opacity-90 transition"
           >
-            <Linkedin className="w-5 h-5" />
+            <Linkedin className="w-5 h-5" aria-hidden="true" />
             Connect on LinkedIn
           </a>
-        </motion.div>
+        </motion.section>
       </div>
     </section>
   );
@@ -244,34 +254,46 @@ function About() {
 
 function InfoCard({ icon: Icon, title, value }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6">
+    <article
+      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6"
+      tabIndex={0}
+      aria-label={title}
+    >
       <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-[#7E2EEF] to-[#3648EF] flex items-center justify-center">
-        <Icon className="w-6 h-6 text-white" />
+        <Icon className="w-6 h-6 text-white" aria-hidden="true" />
       </div>
       <h4 className="text-white font-semibold mb-1">{title}</h4>
       <p className="text-gray-400 text-sm">{value}</p>
-    </div>
+    </article>
   );
 }
 
 function ProcessCard({ icon: Icon, title, text }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6">
-      <Icon className="w-8 h-8 text-indigo-400 mb-4" />
+    <article
+      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6"
+      tabIndex={0}
+      aria-label={title}
+    >
+      <Icon className="w-8 h-8 text-indigo-400 mb-4" aria-hidden="true" />
       <h4 className="text-white font-semibold mb-2">{title}</h4>
       <p className="text-gray-400 text-sm">{text}</p>
-    </div>
+    </article>
   );
 }
 
 function TrustCard({ title }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6 text-center">
+    <article
+      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6 text-center"
+      tabIndex={0}
+      aria-label={title}
+    >
       <p className="text-white font-semibold">{title}</p>
       <p className="text-gray-400 text-sm mt-2">
         Professional standards followed on every project.
       </p>
-    </div>
+    </article>
   );
 }
 

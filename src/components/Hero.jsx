@@ -57,7 +57,7 @@ export default function Hero() {
 
   return (
     <section className="relative my-9 bg-[#0b0b0f] overflow-hidden min-h-screen flex items-center justify-center px-6 py-20">
-      {/* Subtle animated background orbs */}
+      {/* Background Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <motion.div
@@ -74,10 +74,7 @@ export default function Hero() {
               left: i % 2 === 0 ? `${10 + i * 10}%` : "auto",
               right: i % 2 === 1 ? `${10 + i * 10}%` : "auto",
             }}
-            animate={{
-              y: [0, -60, 0],
-              scale: [1, 1.2, 1],
-            }}
+            animate={{ y: [0, -60, 0], scale: [1, 1.2, 1] }}
             transition={{
               duration: 15 + i * 3,
               repeat: Infinity,
@@ -100,7 +97,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-indigo-400 font-medium tracking-[0.3em] uppercase text-sm mb-3"
           >
-            This is your
+            MERN Stack Developer
           </motion.p>
 
           <motion.h2
@@ -109,10 +106,9 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-4xl md:text-5xl font-bold text-[#7E2EEF] mb-2"
           >
-            Frontend Developer
+            Building Scalable Full-Stack Web Applications
           </motion.h2>
 
-          {/* Name with animated highlight */}
           <motion.h1
             className="relative text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mt-4"
             initial={{ opacity: 0 }}
@@ -137,7 +133,6 @@ export default function Hero() {
                 Zaheer Ahmad
               </motion.span>
 
-              {/* Animated glowing underline */}
               <motion.span
                 aria-hidden="true"
                 className="absolute left-0 -bottom-3 w-full h-6 rounded-full blur-xl opacity-70"
@@ -157,13 +152,13 @@ export default function Hero() {
             transition={{ delay: 1.2 }}
             className="mt-10 max-w-xl text-gray-300 text-lg leading-relaxed"
           >
-            I transform ideas into stunning, high-performance web experiences
-            using React, TypeScript, and modern design systems. Clean code •
-            Pixel-perfect UI • Lightning-fast load times • Obsessed with
-            details.
+            I design and develop production-ready web applications using
+            MongoDB, Express, React, and Node.js. From responsive frontend
+            interfaces to secure backend APIs and optimized database
+            architecture — I build complete solutions that are fast, scalable,
+            and reliable for real-world users.
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,7 +171,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="group relative px-9 py-4 rounded-full font-semibold text-white overflow-hidden bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] shadow-xl"
             >
-              <span className="relative z-10">Discuss Project</span>
+              <span className="relative z-10">Start a Project</span>
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
             </motion.a>
 
@@ -186,7 +181,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-3 px-6 py-4 rounded-full font-medium text-gray-300 hover:text-white transition-all group"
             >
-              View My Work
+              Explore My Projects
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </motion.a>
           </motion.div>
@@ -198,11 +193,8 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
           className="relative flex justify-center"
-          style={{
-            perspective: "1000px",
-          }}
+          style={{ perspective: "1000px" }}
         >
-          {/* Main Image with tilt effect */}
           <motion.div
             className="relative group"
             animate={{
@@ -210,20 +202,16 @@ export default function Hero() {
               rotateX: -mousePosition.y * 20 + 10,
             }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
-            style={{
-              transformStyle: "preserve-3d",
-            }}
+            style={{ transformStyle: "preserve-3d" }}
           >
             <img
               src="/my.png"
-              alt="Zaheer Ahmad - Frontend Developer"
+              alt="Zaheer Ahmad - MERN Stack Developer"
               className="w-full max-w-lg rounded-3xl shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700 border border-gray-800"
             />
 
-            {/* Gradient glow overlay */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#7E2EEF]/20 to-[#3648EF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-            {/* Badge */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -232,16 +220,15 @@ export default function Hero() {
             >
               <div className="w-full h-full rounded-full bg-[#0b0b0f]/95 backdrop-blur-xl flex flex-col items-center justify-center border border-white/10">
                 <span className="text-white font-bold text-lg tracking-wider">
-                  Frontend
+                  MERN Stack
                 </span>
                 <span className="text-indigo-400 text-sm uppercase tracking-widest font-medium">
-                  Master
+                  Developer
                 </span>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Floating Diamonds */}
           <FloatingDiamond className="absolute -top-16 -left-10 w-16 h-16 opacity-70" />
           <FloatingDiamond className="absolute -bottom-20 -right-16 w-20 h-20 opacity-60" />
           <FloatingDiamond className="absolute top-10 right-0 w-12 h-12 opacity-50" />
