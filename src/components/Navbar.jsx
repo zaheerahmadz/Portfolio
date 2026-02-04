@@ -7,6 +7,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaTiktok,
+  FaGithub,
   FaMapMarkerAlt,
   FaBars,
   FaTimes,
@@ -23,6 +24,10 @@ const socialLinks = [
   {
     icon: FaTiktok,
     href: "https://www.tiktok.com/@zeesoft99944?_r=1&_t=ZS-93QlH9GvcEj",
+  },
+  {
+    icon: FaGithub,
+    href: "https://github.com/zaheerahmadz",
   },
 ];
 

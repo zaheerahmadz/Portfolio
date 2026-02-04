@@ -5,6 +5,7 @@ import {
   FaFacebookF,
   FaTiktok,
   FaEnvelope,
+  FaGithub,
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
@@ -59,6 +60,15 @@ const Footer = () => {
                 className="text-gray-400 hover:text-indigo-400 transition-colors"
               >
                 <FaTiktok size={20} />
+              </a>
+              <a
+                href="https://github.com/zaheerahmadz"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok profile"
+                className="text-gray-400 hover:text-indigo-400 transition-colors"
+              >
+                <FaGithub size={20} />
               </a>
             </div>
           </div>

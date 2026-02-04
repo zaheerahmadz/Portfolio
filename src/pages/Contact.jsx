@@ -1,6 +1,7 @@
 import {
   FaPhoneAlt,
   FaEnvelope,
+  FaGithub,
   FaMapMarkerAlt,
   FaLinkedinIn,
   FaFacebookF,
@@ -121,6 +122,11 @@ const Contact = () => {
                       icon: FaTiktok,
                       target: "_blank",
                       href: "https://www.tiktok.com/@zeesoft99944?_r=1&_t=ZS-93QlH9GvcEj",
+                    },
+                    {
+                      icon: FaGithub,
+                      target: "_blank",
+                      href: "https://github.com/zaheerahmadz",
                     },
                   ].map(({ icon: Icon, href }, i) => (
                     <motion.a
