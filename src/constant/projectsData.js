@@ -71,6 +71,26 @@ const projects = [
     github: "https://meditics.temptics.com/?storefront=envato-elements",
     featured: false,
   },
+  {
+    id: 8,
+    title: "Gourmet Restaurant Website",
+    desc: "A modern, responsive restaurant website showcasing menu, reservations, and chef specials with interactive UI built using React & Tailwind CSS.",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "React Router"],
+    image: "/images/resturent.jpg",
+    live: "https://gramentheme.com/html/fresheat/?storefront=envato-elements",
+    github: "https://gramentheme.com/html/fresheat/?storefront=envato-elements",
+    featured: false,
+  },
+  {
+    id: 9,
+    title: "School Website",
+    desc: "A responsive school website showcasing courses, faculty, events, and student resources, built with React & Tailwind CSS for modern UI and easy navigation.",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "React Router"],
+    image: "/images/school.jpg",
+    live: "https://edumon-nextjs.vercel.app/?storefront=envato-elements",
+    github: "https://edumon-nextjs.vercel.app/?storefront=envato-elements",
+    featured: false,
+  },
 ];
 
 export default projects;
