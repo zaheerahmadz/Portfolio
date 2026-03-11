@@ -102,7 +102,7 @@ export default function WorkProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl font-bold text-white tracking-tight"
+              className="text-4xl sm:text-5xl my-5 font-bold text-white tracking-tight"
             >
               My{" "}
               <span className="bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] bg-clip-text text-transparent">
