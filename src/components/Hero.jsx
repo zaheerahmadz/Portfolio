@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Button from "./ui/Button";
+import AnimatedReveal from "./ui/AnimatedReveal";
 
 const FloatingDiamond = ({ className = "" }) => (
   <motion.div
@@ -86,34 +88,31 @@ export default function Hero() {
 
       <div className="relative max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
         {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+        <AnimatedReveal animation="fadeInUp" duration={0.9}>
+          <AnimatedReveal
+            as="p"
+            animation="fadeIn"
+            delay={0.3}
             className="text-indigo-400 font-medium tracking-[0.3em] uppercase text-sm mb-3"
           >
             MERN Stack Developer
-          </motion.p>
+          </AnimatedReveal>
 
-          <motion.h2
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+          <AnimatedReveal
+            as="h2"
+            animation="fadeInLeft"
+            delay={0.5}
+            duration={0.8}
             className="text-4xl md:text-5xl font-bold text-[#7E2EEF] mb-2"
           >
             Building Scalable Full-Stack Web Applications
-          </motion.h2>
+          </AnimatedReveal>
 
-          <motion.h1
+          <AnimatedReveal
+            as="h1"
             className="relative text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
+            animation="fadeIn"
+            delay={0.7}
           >
             <span className="relative inline-block">
               <motion.span
@@ -144,12 +143,12 @@ export default function Hero() {
                 }}
               />
             </span>
-          </motion.h1>
+          </AnimatedReveal>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
+          <AnimatedReveal
+            as="p"
+            animation="fadeInUp"
+            delay={1.2}
             className="mt-10 max-w-xl text-gray-300 text-lg leading-relaxed"
           >
             I design and develop production-ready web applications using
@@ -157,35 +156,22 @@ export default function Hero() {
             interfaces to secure backend APIs and optimized database
             architecture — I build complete solutions that are fast, scalable,
             and reliable for real-world users.
-          </motion.p>
+          </AnimatedReveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4 }}
+          <AnimatedReveal
+            animation="fadeInUp"
+            delay={1.4}
             className="mt-12 flex flex-wrap gap-6"
           >
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative px-9 py-4 rounded-full font-semibold text-white overflow-hidden bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] shadow-xl"
-            >
-              <span className="relative z-10">Start a Project</span>
-              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-            </motion.a>
+            <Button href="/contact" variant="primary">
+              Start a Project
+            </Button>
 
-            <motion.a
-              href="/projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-3 px-6 py-4 rounded-full font-medium text-gray-300 hover:text-white transition-all group"
-            >
+            <Button href="/projects" variant="text" icon={ArrowRight}>
               Explore My Projects
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+            </Button>
+          </AnimatedReveal>
+        </AnimatedReveal>
 
         {/* Right Image */}
         <motion.div

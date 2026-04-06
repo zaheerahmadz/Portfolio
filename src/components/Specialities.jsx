@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import Card from "./ui/Card";
+import AnimatedReveal from "./ui/AnimatedReveal";
 import {
   DevicePhoneMobileIcon,
   CodeBracketIcon,
@@ -56,22 +58,7 @@ const specialities = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", damping: 18, stiffness: 100 },
-  },
-};
+// Removed variants since AnimatedReveal handles them
 
 export default function Specialities() {
   return (
@@ -97,66 +84,60 @@ export default function Specialities() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 z-10">
           {/* Heading */}
           <div className="text-center mb-20 md:mb-28">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <AnimatedReveal
+              as="p"
+              animation="fadeInUp"
+              duration={0.6}
               className="text-indigo-400/70 uppercase tracking-[0.3em] text-sm font-medium mb-4"
             >
               Core Expertise
-            </motion.p>
+            </AnimatedReveal>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+            <AnimatedReveal
+              as="h2"
+              animation="fadeInUp"
+              duration={0.7}
+              delay={0.1}
               className="text-4xl sm:text-5xl font-bold text-white tracking-tight"
             >
               My{" "}
               <span className="bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] bg-clip-text text-transparent">
                 MERN Specialities
               </span>
-            </motion.h2>
+            </AnimatedReveal>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+            <AnimatedReveal
+              as="p"
+              animation="fadeInUp"
+              duration={0.7}
+              delay={0.2}
               className="mt-6 text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed"
             >
               A focused full-stack skill set that enables me to build complete,
               scalable, and production-ready web applications from frontend to
               backend.
-            </motion.p>
+            </AnimatedReveal>
           </div>
 
           {/* Cards */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+          <AnimatedReveal
+            animation="staggerContainer"
             className="grid gap-8 md:gap-10 lg:gap-12 md:grid-cols-2 lg:grid-cols-3"
           >
             {specialities.map((item, idx) => {
               const Icon = item.icon;
 
               return (
-                <motion.div
+                <AnimatedReveal
                   key={idx}
-                  variants={cardVariants}
+                  animation="cardAnimation"
                   className="group relative"
                 >
-                  <div className="relative bg-[#111118]/80 backdrop-blur-sm border border-gray-800/60 rounded-2xl p-8 md:p-10 transition-all duration-400 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-transparent overflow-hidden">
-                    <div
-                      className={`absolute inset-0 rounded-2xl p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${item.color}`}
-                    >
-                      <div className="w-full h-full bg-[#0b0b0f] rounded-2xl" />
-                    </div>
-
+                  <Card
+                    hoverEffect={true}
+                    glowColor={item.color}
+                    className="md:p-10 transition-all duration-400 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-transparent bg-[#111118]/80 border-gray-800/60"
+                  >
                     <div className="relative mb-7 flex justify-center">
                       <div
                         className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} text-white/90 group-hover:text-white transition-all duration-400 group-hover:scale-110 group-hover:rotate-3`}
@@ -174,11 +155,11 @@ export default function Specialities() {
                         {item.description}
                       </p>
                     </div>
-                  </div>
-                </motion.div>
+                  </Card>
+                </AnimatedReveal>
               );
             })}
-          </motion.div>
+          </AnimatedReveal>
         </div>
       </section>
     </>

@@ -15,6 +15,10 @@ import {
   Clock,
 } from "lucide-react";
 
+import Card from "../components/ui/Card";
+import Button from "../components/ui/Button";
+import AnimatedReveal from "../components/ui/AnimatedReveal";
+
 function About() {
   /* Mouse sunlight glow */
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -53,11 +57,10 @@ function About() {
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.header
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+        <AnimatedReveal
+          animation="fadeInUp"
+          duration={0.8}
+          as="header"
           className="max-w-3xl"
         >
           <p className="text-indigo-400 uppercase tracking-[0.3em] text-sm font-medium">
@@ -86,7 +89,7 @@ function About() {
             builds scalable, responsive, high-performance, SEO-optimized
             full-stack web applications for clients worldwide.
           </p>
-        </motion.header>
+        </AnimatedReveal>
 
         {/* Main Grid */}
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -152,11 +155,10 @@ function About() {
         </div>
 
         {/* How I Work */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+        <AnimatedReveal
+          animation="fadeInUp"
+          duration={0.7}
+          as="section"
           className="mt-28"
           aria-labelledby="work-with-clients"
         >
@@ -189,62 +191,76 @@ function About() {
               text="Reliable delivery with testing and revisions."
             />
           </div>
-        </motion.section>
+        </AnimatedReveal>
 
         {/* Trust Signals */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <AnimatedReveal
+          animation="fadeInUp"
+          duration={0.6}
+          as="section"
           className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6"
           aria-label="Professional trust signals"
         >
           <TrustCard title="Clean & Scalable Code" />
           <TrustCard title="Clear Communication" />
           <TrustCard title="On-Time Delivery" />
-        </motion.section>
+        </AnimatedReveal>
 
-        {/* Contact */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-28 flex flex-col md:flex-row items-center justify-between gap-6 rounded-3xl border border-white/10 bg-[#0f0f14]/80 backdrop-blur-xl p-8"
+        {/* Contact (UPDATED STRICT ONE-LINE LAYOUT) */}
+        <AnimatedReveal
+          animation="fadeInUp"
+          duration={0.6}
+          as="section"
+          className="mt-28"
           aria-label="Contact information"
         >
-          <div className="flex flex-col sm:flex-row gap-6 text-gray-300">
-            <span className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-indigo-400" aria-hidden="true" />
-              <a
-                href="mailto:zaheerahmedjudg@gmail.com"
-                className="underline hover:text-indigo-400"
-              >
-                zaheerahmedjudg@gmail.com
-              </a>
-            </span>
-            <span className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-indigo-400" aria-hidden="true" />
-              <a
-                href="tel:+923105499944"
-                className="underline hover:text-indigo-400"
-              >
-                +92 310 5499944
-              </a>
-            </span>
-          </div>
+          <Card className="flex flex-col xl:flex-row items-center justify-between gap-6 !rounded-3xl p-6 md:p-8 bg-[#0f0f14]/80 backdrop-blur-xl w-full">
+            <div className="flex my-5 flex-col md:flex-row items-center gap-4 md:gap-8 text-gray-300 w-full xl:w-auto justify-center xl:justify-start">
+              {/* Email */}
+              <span className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-indigo-400" aria-hidden="true" />
+                <a
+                  href="mailto:zaheerahmedjudg@gmail.com"
+                  className="text-base font-medium underline hover:text-indigo-400 transition-colors"
+                >
+                  zaheerahmedjudg@gmail.com
+                </a>
+              </span>
 
-          <a
-            href="https://www.linkedin.com/in/zaheer-ahmad-352148329/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#7E2EEF] to-[#3648EF] text-white font-semibold hover:opacity-90 transition"
-          >
-            <Linkedin className="w-5 h-5" aria-hidden="true" />
-            Connect on LinkedIn
-          </a>
-        </motion.section>
+              {/* Desktop Divider */}
+              <span
+                className="hidden md:block text-gray-700"
+                aria-hidden="true"
+              >
+                |
+              </span>
+
+              {/* Phone */}
+              <span className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-indigo-400" aria-hidden="true" />
+                <a
+                  href="tel:+923105499944"
+                  className="text-base font-medium underline hover:text-indigo-400 transition-colors"
+                >
+                  +92 310 5499944
+                </a>
+              </span>
+            </div>
+
+            {/* LinkedIn Button */}
+            <div className="w-full my-5 xl:w-auto flex justify-center mt-4 xl:mt-0">
+              <Button
+                href="https://www.linkedin.com/in/zaheer-ahmad-352148329/"
+                target="_blank"
+                icon={Linkedin}
+                variant="primary"
+                className="w-full sm:w-auto whitespace-nowrap"
+              >
+                Connect on LinkedIn
+              </Button>
+            </div>
+          </Card>
+        </AnimatedReveal>
       </div>
     </section>
   );
@@ -254,46 +270,34 @@ function About() {
 
 function InfoCard({ icon: Icon, title, value }) {
   return (
-    <article
-      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6"
-      tabIndex={0}
-      aria-label={title}
-    >
+    <Card className="p-6" aria-label={title}>
       <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-[#7E2EEF] to-[#3648EF] flex items-center justify-center">
         <Icon className="w-6 h-6 text-white" aria-hidden="true" />
       </div>
       <h4 className="text-white font-semibold mb-1">{title}</h4>
       <p className="text-gray-400 text-sm">{value}</p>
-    </article>
+    </Card>
   );
 }
 
 function ProcessCard({ icon: Icon, title, text }) {
   return (
-    <article
-      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6"
-      tabIndex={0}
-      aria-label={title}
-    >
+    <Card className="p-6" aria-label={title}>
       <Icon className="w-8 h-8 text-indigo-400 mb-4" aria-hidden="true" />
       <h4 className="text-white font-semibold mb-2">{title}</h4>
       <p className="text-gray-400 text-sm">{text}</p>
-    </article>
+    </Card>
   );
 }
 
 function TrustCard({ title }) {
   return (
-    <article
-      className="rounded-2xl border border-white/10 bg-[#0f0f14]/80 p-6 text-center"
-      tabIndex={0}
-      aria-label={title}
-    >
+    <Card className="p-6 text-center" aria-label={title}>
       <p className="text-white font-semibold">{title}</p>
       <p className="text-gray-400 text-sm mt-2">
         Professional standards followed on every project.
       </p>
-    </article>
+    </Card>
   );
 }
 

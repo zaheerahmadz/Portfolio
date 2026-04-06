@@ -2,19 +2,21 @@ import React from "react";
 import { ExternalLink, Github } from "lucide-react";
 import projects from "../constant/projectsData";
 import { motion } from "framer-motion";
+import Card from "./ui/Card";
+import AnimatedReveal from "./ui/AnimatedReveal";
 
 const MyProjects = () => {
   return (
     <>
       {projects.map((project, index) => (
-        <motion.div
+        <AnimatedReveal
           key={index}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1, duration: 0.6 }}
-          className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#0f0f14]/80 backdrop-blur-xl"
+          animation="fadeInUp"
+          delay={index * 0.1}
+          duration={0.6}
+          className="group"
         >
+          <Card hoverEffect={true} className="!p-0 !rounded-3xl cursor-pointer">
           {/* Image */}
           <a href={project.live} target="_blank">
             <div className="relative h-56 overflow-hidden">
@@ -69,9 +71,8 @@ const MyProjects = () => {
             </div>
           </div>
 
-          {/* Hover Glow */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#7E2EEF]/20 to-[#3648EF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-        </motion.div>
+          </Card>
+        </AnimatedReveal>
       ))}
     </>
   );
